@@ -1,0 +1,107 @@
+{% extends 'layout.html'%} {% block title %}About - Web Phishing Detection{%
+endblock title %} {% block body %}
+<div class="flex justify-center my-6 sm:my-10 px-2">
+  <div class="w-full max-w-2xl">
+    <div class="bg-white rounded-lg shadow-lg">
+      <div class="p-4 sm:p-6">
+        <h3 class="text-xl sm:text-2xl font-semibold text-center mb-4 sm:mb-6">
+          <i class="fas fa-info-circle text-secondary mr-2"></i>
+          About Our Phishing Detection System
+        </h3>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+          <div
+            class="bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-300"
+          >
+            <div class="p-4 sm:p-6">
+              <h5 class="text-base sm:text-lg font-medium mb-2 sm:mb-4">
+                <i class="fas fa-shield-alt text-secondary mr-2"></i>
+                Our Team
+              </h5>
+              <p class="text-gray-600 mb-2 sm:mb-4 text-sm sm:text-base">
+                We are Final Year Students of BE IT who designed and developed
+                this project as a part of our FYP.
+              </p>
+              <ul class="space-y-2">
+                <li
+                  class="flex items-center text-gray-700 text-sm sm:text-base"
+                >
+                  <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                  Aryan Shrestha
+                </li>
+                <li
+                  class="flex items-center text-gray-700 text-sm sm:text-base"
+                >
+                  <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                  Ruksana Shrestha
+                </li>
+                <li
+                  class="flex items-center text-gray-700 text-sm sm:text-base"
+                >
+                  <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                  Saksham Thapa
+                </li>
+                <li
+                  class="flex items-center text-gray-700 text-sm sm:text-base"
+                >
+                  <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                  Sameer Maharjan
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div
+            class="bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-300"
+          >
+            <div class="p-4 sm:p-6">
+              <h5 class="text-base sm:text-lg font-medium mb-2 sm:mb-4">
+                <i class="fas fa-lock text-secondary mr-2"></i>
+                Security Features
+              </h5>
+              <p class="text-gray-600 mb-2 sm:mb-4 text-sm sm:text-base">
+                Our system provides comprehensive protection against various
+                types of phishing attacks:
+              </p>
+              <ul class="space-y-2">
+                <li
+                  class="flex items-center text-gray-700 text-sm sm:text-base"
+                >
+                  <i class="fas fa-shield-alt text-secondary mr-2"></i>
+                  Real-time URL analysis
+                </li>
+                <li
+                  class="flex items-center text-gray-700 text-sm sm:text-base"
+                >
+                  <i class="fas fa-shield-alt text-secondary mr-2"></i>
+                  Machine learning-based detection
+                </li>
+                <li
+                  class="flex items-center text-gray-700 text-sm sm:text-base"
+                >
+                  <i class="fas fa-shield-alt text-secondary mr-2"></i>
+                  Detailed security reports
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 sm:mt-6 bg-blue-50 rounded-md p-3 sm:p-4">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center">
+            <div class="flex-shrink-0">
+              <i class="fas fa-lightbulb text-blue-400"></i>
+            </div>
+            <div class="ml-0 sm:ml-3 mt-2 sm:mt-0">
+              <p class="text-xs sm:text-sm text-blue-700">
+                <strong>Tip:</strong> Always verify the URL before entering
+                sensitive information, even if it appears legitimate.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}

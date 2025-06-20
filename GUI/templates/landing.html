@@ -1,0 +1,138 @@
+{% extends 'layout.html' %} {% block title %}PhishGuard - Protect Yourself from
+Online Scams{% endblock title %} {% block body %}
+<!-- Hero Section -->
+<div
+  class="relative w-full bg-cover bg-center min-h-[420px] flex items-center justify-center overflow-hidden shadow-lg"
+  style="
+    background-image: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1500&q=80');
+  "
+>
+  <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+  <div
+    class="relative z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 py-16 sm:py-20 gap-8 w-full"
+  >
+    <h1
+      class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg"
+    >
+      Protect Yourself from Online Scams<br />with One Click
+    </h1>
+    <p
+      class="text-base sm:text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto drop-shadow"
+    >
+      PhishGuard helps you identify potentially dangerous phishing websites
+      before it's too late. Stay safe online and protect your personal
+      information with our advanced detection system.
+    </p>
+    <a
+      href="/detectURL"
+      class="bg-[#0057FF] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-lg font-semibold text-base sm:text-lg hover:bg-blue-700 transition"
+      >Get Started</a
+    >
+  </div>
+</div>
+
+<!-- How It Works -->
+<section class="py-16 sm:py-24">
+  <h2 class="text-2xl sm:text-3xl font-semibold text-center">How It Works</h2>
+  <p class="text-gray-500 text-center mb-8 sm:mb-10">
+    Step-by-step process to ensure secure and seamless authentication for every
+    user.
+  </p>
+  <div class="flex flex-col md:flex-row justify-center sm:gap-8 px-4">
+    <div
+      class="bg-white rounded-2xl shadow-lg p-8 sm:p-10 flex flex-col items-center w-full max-w-xs mb-6 md:mb-0"
+    >
+      <span class="text-3xl mb-4"
+        ><img
+          src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4dd.svg"
+          alt="Paste URL"
+          class="w-14 h-14 sm:w-16 sm:h-16"
+      /></span>
+      <h3 class="text-lg sm:text-xl font-medium mb-2">Paste URL</h3>
+    </div>
+    <div
+      class="bg-white rounded-2xl shadow-lg p-8 sm:p-10 flex flex-col items-center w-full max-w-xs mb-6 md:mb-0"
+    >
+      <span class="text-3xl mb-4"
+        ><img
+          src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f310.svg"
+          alt="Analyze"
+          class="w-14 h-14 sm:w-16 sm:h-16"
+      /></span>
+      <h3 class="text-lg sm:text-xl font-medium mb-2">Analyze</h3>
+    </div>
+    <div
+      class="bg-white rounded-2xl shadow-lg p-8 sm:p-10 flex flex-col items-center w-full max-w-xs"
+    >
+      <span class="text-3xl mb-4"
+        ><img
+          src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4c8.svg"
+          alt="Get Results"
+          class="w-14 h-14 sm:w-16 sm:h-16"
+      /></span>
+      <h3 class="text-lg sm:text-xl font-medium mb-2">Get Results</h3>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="bg-gray-100 py-16 sm:py-24 px-4">
+  <h2 class="text-2xl sm:text-3xl font-semibold text-center mb-2">Features</h2>
+  <p
+    class="text-gray-500 text-center mb-8 sm:mb-10 max-w-2xl mx-auto text-base sm:text-lg"
+  >
+    Explore the core features that make our phishing detection tool fast,
+    accurate, secure, and effortless to use—built with machine learning to
+    protect you in real time.
+  </p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
+    <div
+      class="bg-white rounded-2xl shadow-lg p-6 sm:p-8 flex items-center gap-4"
+    >
+      <span class="text-2xl sm:text-3xl"
+        ><i class="fas fa-bolt text-blue-500"></i
+      ></span>
+      <span class="text-lg sm:text-xl font-medium">Fast Detection</span>
+    </div>
+    <div
+      class="bg-white rounded-2xl shadow-lg p-6 sm:p-8 flex items-center gap-4"
+    >
+      <span class="text-2xl sm:text-3xl"
+        ><i class="fas fa-brain text-pink-400"></i
+      ></span>
+      <span class="text-lg sm:text-xl font-medium">ML Backed Accuracy</span>
+    </div>
+    <div
+      class="bg-white rounded-2xl shadow-lg p-6 sm:p-8 flex items-center gap-4"
+    >
+      <span class="text-2xl sm:text-3xl"
+        ><i class="fas fa-laptop text-blue-400"></i
+      ></span>
+      <span class="text-lg sm:text-xl font-medium">Easy-to-Use Interface</span>
+    </div>
+    <div
+      class="bg-white rounded-2xl shadow-lg p-6 sm:p-8 flex items-center gap-4"
+    >
+      <span class="text-2xl sm:text-3xl"
+        ><i class="fas fa-lock text-yellow-500"></i
+      ></span>
+      <span class="text-lg sm:text-xl font-medium">Privacy/Security</span>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer
+  class="py-6 border-t border-gray-200 flex flex-col md:flex-row items-center justify-center md:justify-around text-gray-500 text-sm px-4"
+>
+  <div class="mb-2 md:mb-0">
+    PhishGuard. © 2024 PhishGuard. All Rights Reserved.
+  </div>
+  <div class="flex space-x-4">
+    <a href="#" class="hover:text-black"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="hover:text-black"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="hover:text-black"><i class="fab fa-github"></i></a>
+    <a href="#" class="hover:text-black"><i class="fab fa-linkedin-in"></i></a>
+  </div>
+</footer>
+{% endblock body %}

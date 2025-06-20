@@ -1,0 +1,76 @@
+{% extends 'layout.html'%} {% block title %}Web Phishing Detection{% endblock
+title %} {% block body %}
+<div class="flex flex-col items-center min-h-[80vh] py-8 sm:py-10 px-2">
+  <h1 class="text-3xl sm:text-5xl font-semibold text-gray-800 text-center mb-3">
+    Analyze a Website for Phishing Threats
+  </h1>
+  <p
+    class="text-base sm:text-lg text-gray-500 text-center mb-6 sm:mb-10 max-w-2xl"
+  >
+    Paste the URL below to detect if it's safe or potentially malicious.
+  </p>
+
+  <form
+    method="POST"
+    action="{{url_for('getURL')}}"
+    class="flex flex-col md:flex-row items-center w-full max-w-3xl mb-6 sm:mb-8 gap-3 sm:gap-4 px-0 sm:px-2"
+  >
+    <input
+      class="flex-1 px-4 sm:px-6 py-3 sm:py-4 rounded-xl shadow text-base sm:text-lg border border-gray-200 focus:ring-2 focus:ring-blue-400 focus:outline-none font-sans placeholder-gray-400"
+      type="text"
+      name="url"
+      placeholder="e.g., https://example.com"
+      value="{{request.form.url}}"
+      required
+    />
+    <button
+      type="submit"
+      class="bg-[#0057FF] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-lg font-medium text-base sm:text-lg hover:bg-blue-700 transition"
+    >
+      Scan URL
+    </button>
+  </form>
+
+  {% if error %}
+  <div
+    class="w-full max-w-4xl bg-white rounded-2xl shadow-lg p-6 sm:p-10 flex flex-col items-center mb-4"
+  >
+    {% if error == 'This URL is Legitimate' %}
+    <h2 class="text-2xl sm:text-4xl font-medium text-gray-800 text-center mb-2">
+      The website is <span class="font-semibold text-green-600">Safe.</span>
+    </h2>
+    <p class="text-gray-500 text-center text-base sm:text-lg">
+      This website appears legitimate with no signs of phishing detected.<br />You
+      may proceed safely, but always stay cautious online.
+    </p>
+    {% else %}
+    <h2 class="text-2xl sm:text-4xl font-medium text-gray-800 text-center mb-2">
+      The website is <span class="font-semibold text-red-600">Phishing!</span>
+    </h2>
+    <p class="text-gray-500 text-center text-base sm:text-lg">
+      Warning: This website has characteristics of a phishing site.<br />Do not
+      enter any sensitive information and leave immediately.
+    </p>
+    {% endif %}
+  </div>
+  {% endif %} {% if reasons %}
+  <div style="margin-top: 30px;">
+    {% for reason in reasons %}
+      {% if 'phishing' in reason or 'Phishing' in reason or 'spam' in reason or 'RISK' in reason %}
+        <div style="background-color: #ffdddd; color: #a94442; border: 2px solid #a94442; border-radius: 8px; padding: 18px; margin-bottom: 18px; font-size: 1.25em; font-weight: 500; box-shadow: 0 2px 8px rgba(169,68,66,0.08);">
+          <i class="fa fa-exclamation-triangle" style="margin-right: 10px;"></i>{{ reason }}
+        </div>
+      {% elif 'Legitimate' in reason or 'safe' in reason or 'not phishing' in reason %}
+        <div style="background-color: #e6ffed; color: #256029; border: 2px solid #256029; border-radius: 8px; padding: 18px; margin-bottom: 18px; font-size: 1.25em; font-weight: 500; box-shadow: 0 2px 8px rgba(37,96,41,0.08);">
+          <i class="fa fa-check-circle" style="margin-right: 10px;"></i>{{ reason }}
+        </div>
+      {% else %}
+        <div style="background-color: #f5f5f5; color: #333; border: 2px solid #ccc; border-radius: 8px; padding: 18px; margin-bottom: 18px; font-size: 1.15em; font-weight: 400;">
+          {{ reason }}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% endblock body %}
