@@ -360,6 +360,7 @@ def getURL():
         nlp_score = 0
         text_message = None
         url_message = None
+        text_status = None  # Add this to track text analysis status
         if text and zero_shot_classifier:
             labels = ["phishing", "not phishing", "spam", "benign"]
             nlp_result = zero_shot_classifier(text, candidate_labels=labels)
@@ -367,17 +368,23 @@ def getURL():
             nlp_score = nlp_result['scores'][0]
             # User-friendly text analysis message
             print(f"NLP model prediction: {nlp_label} (score: {nlp_score:.2f})")
-            if nlp_label in ['phishing', 'spam'] and nlp_score > 0.7:
+            if nlp_label in ['phishing', 'spam'] and nlp_score > 0.85:
                 text_message = f"Text analysis: ⚠️ This message is likely phishing or spam!"
-            elif nlp_label == 'benign' and nlp_score > 0.7:
+                text_status = "suspicious"
+            elif nlp_label == 'benign' and nlp_score > 0.6:
                 text_message = f"Text analysis: ✅ This message appears safe."
-            elif nlp_label == 'not phishing' and nlp_score > 0.7:
+                text_status = "safe"
+            elif nlp_label == 'not phishing':
                 text_message = f"Text analysis: ✅ This message does not appear to be phishing."
+                text_status = "safe"
             else:
-                if nlp_label in ['phishing', 'spam']:
+                # For low confidence cases, default to safe unless very suspicious
+                if nlp_label in ['phishing', 'spam'] and nlp_score > 0.7:
                     text_message = f"Text analysis: ⚠️ This message may be suspicious."
+                    text_status = "suspicious"
                 else:
-                    text_message = f"Text analysis: ⚠️ This message may be suspicious."
+                    text_message = f"Text analysis: ✅ This message appears safe."
+                    text_status = "safe"
         # URL analysis message
         if url:
             if is_phishing:
@@ -405,7 +412,7 @@ def getURL():
             reasons.extend(phishing_reasons)
         if is_phishing and url and not phishing_reasons:
             reasons.append("Multiple indicators suggest this is a phishing website")
-        return render_template("home.html", error=None, reasons=reasons)
+        return render_template("home.html", error=None, reasons=reasons, text_status=text_status)
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -56,7 +56,21 @@ title %} {% block body %}
   {% endif %} {% if reasons %}
   <div style="margin-top: 30px;">
     {% for reason in reasons %}
-      {% if 'phishing' in reason or 'Phishing' in reason or 'spam' in reason or 'RISK' in reason %}
+      {% if 'Text analysis:' in reason %}
+        {% if text_status == 'safe' %}
+          <div style="background-color: #e6ffed; color: #256029; border: 2px solid #256029; border-radius: 8px; padding: 18px; margin-bottom: 18px; font-size: 1.25em; font-weight: 500; box-shadow: 0 2px 8px rgba(37,96,41,0.08);">
+            <i class="fa fa-check-circle" style="margin-right: 10px;"></i>{{ reason }}
+          </div>
+        {% elif text_status == 'suspicious' %}
+          <div style="background-color: #ffdddd; color: #a94442; border: 2px solid #a94442; border-radius: 8px; padding: 18px; margin-bottom: 18px; font-size: 1.25em; font-weight: 500; box-shadow: 0 2px 8px rgba(169,68,66,0.08);">
+            <i class="fa fa-exclamation-triangle" style="margin-right: 10px;"></i>{{ reason }}
+          </div>
+        {% else %}
+          <div style="background-color: #f5f5f5; color: #333; border: 2px solid #ccc; border-radius: 8px; padding: 18px; margin-bottom: 18px; font-size: 1.15em; font-weight: 400;">
+            {{ reason }}
+          </div>
+        {% endif %}
+      {% elif 'phishing' in reason or 'Phishing' in reason or 'spam' in reason or 'RISK' in reason %}
         <div style="background-color: #ffdddd; color: #a94442; border: 2px solid #a94442; border-radius: 8px; padding: 18px; margin-bottom: 18px; font-size: 1.25em; font-weight: 500; box-shadow: 0 2px 8px rgba(169,68,66,0.08);">
           <i class="fa fa-exclamation-triangle" style="margin-right: 10px;"></i>{{ reason }}
         </div>
